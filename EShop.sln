@@ -13,6 +13,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "apps", "apps", "{85C24C82-E
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EShop.Shared.Hosting", "shared\EShop.Shared.Hosting\EShop.Shared.Hosting.csproj", "{26549E79-E858-42F5-A9DD-8DFDBB73BA7B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EShop.Shared.Localization", "shared\EShop.Shared.Localization\EShop.Shared.Localization.csproj", "{8060DDFF-C177-4568-AA25-97166BB9BD24}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,12 +25,17 @@ Global
 		{26549E79-E858-42F5-A9DD-8DFDBB73BA7B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{26549E79-E858-42F5-A9DD-8DFDBB73BA7B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{26549E79-E858-42F5-A9DD-8DFDBB73BA7B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8060DDFF-C177-4568-AA25-97166BB9BD24}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8060DDFF-C177-4568-AA25-97166BB9BD24}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8060DDFF-C177-4568-AA25-97166BB9BD24}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8060DDFF-C177-4568-AA25-97166BB9BD24}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{26549E79-E858-42F5-A9DD-8DFDBB73BA7B} = {C4321CB4-334F-490E-8D8B-629FA9FD016A}
+		{8060DDFF-C177-4568-AA25-97166BB9BD24} = {C4321CB4-334F-490E-8D8B-629FA9FD016A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {1A9FDC2A-FE80-4AFD-AEE8-3E46CDEC3D6F}
