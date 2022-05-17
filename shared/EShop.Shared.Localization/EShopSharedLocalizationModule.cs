@@ -30,19 +30,11 @@ public class EShopSharedLocalizationModule : AbpModule
                                                });
     }
 
-    /// <summary>
-    ///     Adding the supported languages.
-    /// </summary>
-    /// <see>
-    ///     <cref>https://docs.abp.io/en/abp/latest/Localization</cref>
-    /// </see>
     private void ConfigureLocalization()
     {
         Configure<AbpLocalizationOptions>(options =>
                                           {
-                                              options.Languages.Add(new LanguageInfo("en", "en", "English"));
-                                              options.Languages.Add(new LanguageInfo("zh-Hans", "zh-Hans", "简体中文"));
-                                              options.Resources.Add<EShopResource>("en").AddBaseTypes(typeof(AbpValidationResource)).AddVirtualJson("/Localization/Resources");
+                                              options.Resources.Add<EShopResource>("en").AddBaseTypes(typeof(AbpValidationResource)).AddVirtualJson("/Localization/EShop");
                                               options.DefaultResourceType = typeof(EShopResource);
                                           });
     }

@@ -32,9 +32,4 @@
 		<ProjectReference Include="..\EShop.Shared.Hosting.AspNetCore\EShop.Shared.Hosting.AspNetCore.csproj" />
 	</ItemGroup>
 
-	<ItemGroup>
-		<Folder Include="DbMigrations\EfCore\" />
-		<Folder Include="DbMigrations\MongoDb\" />
-	</ItemGroup>
-
 </Project>
