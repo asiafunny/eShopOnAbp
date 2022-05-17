@@ -15,7 +15,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EShop.Shared.Hosting", "sha
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EShop.Shared.Localization", "shared\EShop.Shared.Localization\EShop.Shared.Localization.csproj", "{8060DDFF-C177-4568-AA25-97166BB9BD24}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EShop.Shared.Hosting.AspNetCore", "shared\EShop.Shared.Hosting.AspNetCore\EShop.Shared.Hosting.AspNetCore.csproj", "{C52447A6-3614-48FC-8B59-72B85AA3B5F6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EShop.Shared.Hosting.AspNetCore", "shared\EShop.Shared.Hosting.AspNetCore\EShop.Shared.Hosting.AspNetCore.csproj", "{C52447A6-3614-48FC-8B59-72B85AA3B5F6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EShop.Shared.Hosting.Gateway", "shared\EShop.Shared.Hosting.Gateway\EShop.Shared.Hosting.Gateway.csproj", "{7F71A797-B681-4DEA-9975-380F552C9883}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,6 +37,10 @@ Global
 		{C52447A6-3614-48FC-8B59-72B85AA3B5F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C52447A6-3614-48FC-8B59-72B85AA3B5F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C52447A6-3614-48FC-8B59-72B85AA3B5F6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7F71A797-B681-4DEA-9975-380F552C9883}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7F71A797-B681-4DEA-9975-380F552C9883}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7F71A797-B681-4DEA-9975-380F552C9883}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7F71A797-B681-4DEA-9975-380F552C9883}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -43,6 +49,7 @@ Global
 		{26549E79-E858-42F5-A9DD-8DFDBB73BA7B} = {C4321CB4-334F-490E-8D8B-629FA9FD016A}
 		{8060DDFF-C177-4568-AA25-97166BB9BD24} = {C4321CB4-334F-490E-8D8B-629FA9FD016A}
 		{C52447A6-3614-48FC-8B59-72B85AA3B5F6} = {C4321CB4-334F-490E-8D8B-629FA9FD016A}
+		{7F71A797-B681-4DEA-9975-380F552C9883} = {C4321CB4-334F-490E-8D8B-629FA9FD016A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {1A9FDC2A-FE80-4AFD-AEE8-3E46CDEC3D6F}
