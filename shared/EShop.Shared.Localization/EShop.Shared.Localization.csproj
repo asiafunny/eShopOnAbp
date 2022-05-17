@@ -17,8 +17,8 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<EmbeddedResource Include="Localization\Resources\*.json" />
-		<Content Remove="Localization\Resources\*.json" />
+		<EmbeddedResource Include="Localization\EShop\*.json" />
+		<Content Remove="Localization\EShop\*.json" />
 	</ItemGroup>
 
 </Project>
