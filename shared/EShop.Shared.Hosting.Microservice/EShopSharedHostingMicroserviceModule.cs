@@ -10,6 +10,7 @@ using Volo.Abp.BackgroundJobs.RabbitMQ;
 using Volo.Abp.Caching;
 using Volo.Abp.Caching.StackExchangeRedis;
 using Volo.Abp.DistributedLocking;
+using Volo.Abp.EntityFrameworkCore;
 using Volo.Abp.EventBus.RabbitMq;
 using Volo.Abp.Modularity;
 using Volo.Abp.MultiTenancy;
@@ -21,6 +22,7 @@ namespace EShop.Shared.Hosting.Microservice;
 [DependsOn(typeof(AbpDistributedLockingModule))]
 [DependsOn(typeof(AbpEventBusRabbitMqModule))]
 [DependsOn(typeof(AbpBackgroundJobsRabbitMqModule))]
+[DependsOn(typeof(AbpEntityFrameworkCoreModule))]
 [DependsOn(typeof(EShopSharedHostingAspNetCoreModule))]
 public class EShopSharedHostingMicroserviceModule : AbpModule
 {
