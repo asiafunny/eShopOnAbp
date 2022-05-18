@@ -11,7 +11,7 @@ public static class SwaggerHelper
         services.AddSwaggerGen(options =>
                                {
                                    options.SwaggerDoc(apiName, new OpenApiInfo { Title = apiTitle, Version = apiVersion });
-                                   options.DocInclusionPredicate((docName, description) => true);
+                                   options.DocInclusionPredicate((_, _) => true);
                                    options.CustomSchemaIds(type => type.FullName);
                                });
     }
@@ -24,7 +24,7 @@ public static class SwaggerHelper
                                            options =>
                                            {
                                                options.SwaggerDoc(apiName, new OpenApiInfo { Title = apiTitle, Version = apiVersion });
-                                               options.DocInclusionPredicate((docName, description) => true);
+                                               options.DocInclusionPredicate((_, _) => true);
                                                options.CustomSchemaIds(type => type.FullName);
                                            });
     }

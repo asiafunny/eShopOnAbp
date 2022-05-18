@@ -2,7 +2,7 @@
 
 namespace EShop.Localization.Localization;
 
-[LocalizationResourceName("EShop")]
-public class EShopResource
+[LocalizationResourceName("Shared")]
+public class SharedResource
 {
 }

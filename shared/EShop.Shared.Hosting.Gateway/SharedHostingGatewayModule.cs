@@ -5,8 +5,8 @@ using Volo.Abp.Modularity;
 
 namespace EShop.Shared.Hosting.Gateway;
 
-[DependsOn(typeof(EShopSharedHostingAspNetCoreModule))]
-public class EShopSharedHostingGatewayModule : AbpModule
+[DependsOn(typeof(SharedHostingAspNetCoreModule))]
+public class SharedHostingGatewayModule : AbpModule
 {
 
     #region Overrides of AbpModule

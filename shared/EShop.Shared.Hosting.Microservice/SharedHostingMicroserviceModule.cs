@@ -23,8 +23,8 @@ namespace EShop.Shared.Hosting.Microservice;
 [DependsOn(typeof(AbpEventBusRabbitMqModule))]
 [DependsOn(typeof(AbpBackgroundJobsRabbitMqModule))]
 [DependsOn(typeof(AbpEntityFrameworkCoreModule))]
-[DependsOn(typeof(EShopSharedHostingAspNetCoreModule))]
-public class EShopSharedHostingMicroserviceModule : AbpModule
+[DependsOn(typeof(SharedHostingAspNetCoreModule))]
+public class SharedHostingMicroserviceModule : AbpModule
 {
 
     #region Overrides of AbpModule
@@ -61,7 +61,7 @@ public class EShopSharedHostingMicroserviceModule : AbpModule
     private void ConfigureDataProtection(IServiceCollection services, IConfiguration configuration)
     {
         var redis = ConnectionMultiplexer.Connect(configuration["Redis:Configuration"]);
-        services.AddDataProtection().SetApplicationName("AdministrationService").PersistKeysToStackExchangeRedis(redis, "EShop-Protection-Keys");
+        services.AddDataProtection().PersistKeysToStackExchangeRedis(redis, "EShop-Protection-Keys");
     }
 
     private void ConfigureDistributedLock(IServiceCollection services, IConfiguration configuration)

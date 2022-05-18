@@ -8,7 +8,7 @@ using Volo.Abp.VirtualFileSystem;
 namespace EShop.Localization;
 
 [DependsOn(typeof(AbpValidationModule))]
-public class EShopSharedLocalizationModule : AbpModule
+public class SharedLocalizationModule : AbpModule
 {
 
     #region Overrides of AbpModule
@@ -26,7 +26,7 @@ public class EShopSharedLocalizationModule : AbpModule
     {
         Configure<AbpVirtualFileSystemOptions>(options =>
                                                {
-                                                   options.FileSets.AddEmbedded<EShopSharedLocalizationModule>();
+                                                   options.FileSets.AddEmbedded<SharedLocalizationModule>();
                                                });
     }
 
@@ -34,8 +34,8 @@ public class EShopSharedLocalizationModule : AbpModule
     {
         Configure<AbpLocalizationOptions>(options =>
                                           {
-                                              options.Resources.Add<EShopResource>("en").AddBaseTypes(typeof(AbpValidationResource)).AddVirtualJson("/Localization/EShop");
-                                              options.DefaultResourceType = typeof(EShopResource);
+                                              options.Resources.Add<SharedResource>("en").AddBaseTypes(typeof(AbpValidationResource)).AddVirtualJson("/Localization/EShop");
+                                              options.DefaultResourceType = typeof(SharedResource);
                                           });
     }
 }

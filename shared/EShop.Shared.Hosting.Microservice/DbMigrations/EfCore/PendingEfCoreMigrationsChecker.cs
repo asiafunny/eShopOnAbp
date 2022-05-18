@@ -15,18 +15,6 @@ namespace EShop.Shared.Hosting.Microservice.DbMigrations;
 public abstract class PendingEfCoreMigrationsChecker<TDbContext> : PendingMigrationsCheckerBase
     where TDbContext : DbContext
 {
-
-    protected PendingEfCoreMigrationsChecker(IUnitOfWorkManager unitOfWorkManager, IServiceProvider serviceProvider, ICurrentTenant currentTenant, IDistributedEventBus distributedEventBus,
-                                             IAbpDistributedLock abpDistributedLock, string databaseName)
-    {
-        UnitOfWorkManager = unitOfWorkManager;
-        ServiceProvider = serviceProvider;
-        CurrentTenant = currentTenant;
-        DistributedEventBus = distributedEventBus;
-        DistributedLock = abpDistributedLock;
-        DatabaseName = databaseName;
-    }
-
     protected IUnitOfWorkManager UnitOfWorkManager { get; }
 
     protected IServiceProvider ServiceProvider { get; }
@@ -39,7 +27,18 @@ public abstract class PendingEfCoreMigrationsChecker<TDbContext> : PendingMigrat
 
     protected string DatabaseName { get; }
 
-    public virtual async Task ApplyDatabaseMigrationsAsync()
+    protected PendingEfCoreMigrationsChecker(IUnitOfWorkManager unitOfWorkManager, IServiceProvider serviceProvider, ICurrentTenant currentTenant, IDistributedEventBus distributedEventBus,
+                                             IAbpDistributedLock distributedLock, string databaseName)
+    {
+        UnitOfWorkManager = unitOfWorkManager;
+        ServiceProvider = serviceProvider;
+        CurrentTenant = currentTenant;
+        DistributedEventBus = distributedEventBus;
+        DistributedLock = distributedLock;
+        DatabaseName = databaseName;
+    }
+
+    public virtual async Task CheckAndApplyDatabaseMigrationsAsync()
     {
         await TryAsync(LockAndApplyDatabaseMigrationsAsync);
     }
@@ -48,7 +47,7 @@ public abstract class PendingEfCoreMigrationsChecker<TDbContext> : PendingMigrat
     {
         await using (var handle = await DistributedLock.TryAcquireAsync($"Migration_{DatabaseName}"))
         {
-            Log.Information($"Lock is acquired for db migration and seeding on database named: {DatabaseName}...");
+            Log.Information($"Lock is acquired for db migration and data seeding on database named: {DatabaseName}...");
             if (handle == null)
             {
                 Log.Information($"Handle is null because of the locking for : {DatabaseName}");
@@ -73,7 +72,7 @@ public abstract class PendingEfCoreMigrationsChecker<TDbContext> : PendingMigrat
                 await dataSeeder.SeedAsync();
             }
 
-            Log.Information($"Lock is released for db migration and seeding on database named: {DatabaseName}...");
+            Log.Information($"Lock is released for db migration and data seeding on database named: {DatabaseName}...");
         }
     }
 }

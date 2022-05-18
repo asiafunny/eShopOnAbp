@@ -6,8 +6,8 @@ namespace EShop.Shared.Hosting.AspNetCore;
 
 [DependsOn(typeof(AbpSwashbuckleModule))]
 [DependsOn(typeof(AbpAspNetCoreSerilogModule))]
-[DependsOn(typeof(EShopSharedHostingModule))]
-public class EShopSharedHostingAspNetCoreModule : AbpModule
+[DependsOn(typeof(SharedHostingModule))]
+public class SharedHostingAspNetCoreModule : AbpModule
 {
 
     #region Overrides of AbpModule

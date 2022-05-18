@@ -1,5 +1,6 @@
-﻿using EShop.Localization.Localization;
+﻿using EShop.AdministrationService.Localization;
 using Volo.Abp.AuditLogging;
+using Volo.Abp.BlobStoring.Database;
 using Volo.Abp.Localization;
 using Volo.Abp.Modularity;
 using Volo.Abp.PermissionManagement;
@@ -11,9 +12,10 @@ using Volo.Abp.VirtualFileSystem;
 namespace EShop.AdministrationService;
 
 [DependsOn(typeof(AbpValidationModule))]
-[DependsOn(typeof(AbpAuditLoggingDomainSharedModule))]
 [DependsOn(typeof(AbpPermissionManagementDomainSharedModule))]
 [DependsOn(typeof(AbpSettingManagementDomainSharedModule))]
+[DependsOn(typeof(AbpAuditLoggingDomainSharedModule))]
+[DependsOn(typeof(BlobStoringDatabaseDomainSharedModule))]
 public class AdministrationServiceDomainSharedModule : AbpModule
 {
 

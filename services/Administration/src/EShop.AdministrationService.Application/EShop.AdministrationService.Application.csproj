@@ -1,0 +1,21 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<Import Project="..\..\..\..\common.props" />
+
+	<PropertyGroup>
+		<TargetFramework>netstandard2.0</TargetFramework>
+		<RootNamespace>EShop.AdministrationService</RootNamespace>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Volo.Abp.AutoMapper" Version="5.2.2" />
+		<PackageReference Include="Volo.Abp.PermissionManagement.Application" Version="5.2.2" />
+		<PackageReference Include="Volo.Abp.SettingManagement.Application" Version="5.2.2" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\EShop.AdministrationService.Application.Contracts\EShop.AdministrationService.Application.Contracts.csproj" />
+		<ProjectReference Include="..\EShop.AdministrationService.Domain\EShop.AdministrationService.Domain.csproj" />
+	</ItemGroup>
+
+</Project>

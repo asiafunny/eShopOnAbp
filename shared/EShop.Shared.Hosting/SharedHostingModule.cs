@@ -9,7 +9,7 @@ namespace EShop.Shared.Hosting;
 /// </summary>
 [DependsOn(typeof(AbpAutofacModule))]
 [DependsOn(typeof(AbpDataModule))]
-public class EShopSharedHostingModule : AbpModule
+public class SharedHostingModule : AbpModule
 {
 
     #region Overrides of AbpModule
@@ -35,10 +35,10 @@ public class EShopSharedHostingModule : AbpModule
                                               options.Databases.Configure("AdministrationService",
                                                                           database =>
                                                                           {
-                                                                              database.MappedConnections.Add("AbpAuditLogging");
+                                                                              database.MappedConnections.Add("AbpFeatureManagement");
                                                                               database.MappedConnections.Add("AbpPermissionManagement");
                                                                               database.MappedConnections.Add("AbpSettingManagement");
-                                                                              database.MappedConnections.Add("AbpFeatureManagement");
+                                                                              database.MappedConnections.Add("AbpAuditLogging");
                                                                               database.MappedConnections.Add("AbpBlobStoring");
                                                                           });
                                               options.Databases.Configure("IdentityService",

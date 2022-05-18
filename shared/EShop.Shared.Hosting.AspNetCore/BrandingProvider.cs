@@ -4,7 +4,7 @@ using Volo.Abp.Ui.Branding;
 namespace EShop.Shared.Hosting.AspNetCore;
 
 [Dependency(ReplaceServices = true)]
-public class EShopBrandingProvider : DefaultBrandingProvider
+public class BrandingProvider : DefaultBrandingProvider
 {
 
     #region Overrides of DefaultBrandingProvider

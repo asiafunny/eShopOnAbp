@@ -1,6 +1,6 @@
 ﻿using Volo.Abp.Localization;
 
-namespace EShop.Localization.Localization;
+namespace EShop.AdministrationService.Localization;
 
 [LocalizationResourceName("AdministrationService")]
 public class AdministrationServiceResource
