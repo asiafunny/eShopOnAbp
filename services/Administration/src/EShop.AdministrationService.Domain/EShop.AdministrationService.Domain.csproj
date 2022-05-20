@@ -3,7 +3,7 @@
 	<Import Project="..\..\..\..\common.props" />
 
 	<PropertyGroup>
-		<TargetFramework>netstandard2.0</TargetFramework>
+		<TargetFramework>net6.0</TargetFramework>
 		<RootNamespace>EShop.AdministrationService</RootNamespace>
 	</PropertyGroup>
 
@@ -19,10 +19,6 @@
 
 	<ItemGroup>
 		<ProjectReference Include="..\EShop.AdministrationService.Domain.Shared\EShop.AdministrationService.Domain.Shared.csproj" />
-	</ItemGroup>
-
-	<ItemGroup>
-	  <Folder Include="Settings\" />
 	</ItemGroup>
 
 </Project>

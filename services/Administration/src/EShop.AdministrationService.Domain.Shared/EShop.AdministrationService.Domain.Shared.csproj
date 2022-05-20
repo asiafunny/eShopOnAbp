@@ -21,8 +21,8 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<EmbeddedResource Include="Localization\Administration\*.json" />
-		<Content Remove="Localization\Administration\*.json" />
+		<EmbeddedResource Include="Localization\Adms\*.json" />
+		<Content Remove="Localization\Adms\*.json" />
 	</ItemGroup>
 
 </Project>
