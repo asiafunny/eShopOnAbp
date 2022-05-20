@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Threading.Tasks;
 using EShop.Shared.Hosting.AspNetCore.Helpers;
-using Microsoft.AspNetCore.Builder;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
 using Serilog;
 
 namespace EShop.AdministrationService;
@@ -15,9 +17,14 @@ public static class Program
         try
         {
             Log.Information($"Starting {applicationName}...");
-            var app = await ApplicationBuilderHelper.BuildApplicationAsync<AdministrationHttpApiHostModule>(args);
-            await app.InitializeApplicationAsync();
-            await app.RunAsync();
+            var builder = Host.CreateDefaultBuilder(args)
+                              .AddAppSettingsSecretsJson()
+                              .ConfigureLogging((_, logging) => logging.ClearProviders())
+                              .ConfigureServices((_, services) =>
+                                                 {
+                                                     services.AddHostedService<AdministrationDbMigratorHostedService>();
+                                                 });
+            await builder.RunConsoleAsync();
             return 0;
         }
         catch (Exception ex)

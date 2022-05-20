@@ -47,6 +47,11 @@ public class SharedHostingModule : AbpModule
                                                                               database.MappedConnections.Add("AbpIdentity");
                                                                               database.MappedConnections.Add("AbpIdentityServer");
                                                                           });
+                                              options.Databases.Configure("SaasService",
+                                                                          database =>
+                                                                          {
+                                                                              database.MappedConnections.Add("AbpTenantManagement");
+                                                                          });
                                           });
     }
 }

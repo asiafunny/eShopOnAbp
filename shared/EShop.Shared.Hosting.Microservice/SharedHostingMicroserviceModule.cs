@@ -1,6 +1,9 @@
-﻿using EShop.Shared.Hosting.AspNetCore;
+﻿using System;
+using System.Linq;
+using EShop.Shared.Hosting.AspNetCore;
 using Medallion.Threading;
 using Medallion.Threading.Redis;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.DataProtection;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -38,6 +41,7 @@ public class SharedHostingMicroserviceModule : AbpModule
         ConfigureDistributedCache();
         ConfigureDataProtection(services, configuration);
         ConfigureDistributedLock(services, configuration);
+        ConfigureCors(services, configuration);
     }
 
     #endregion
@@ -46,7 +50,7 @@ public class SharedHostingMicroserviceModule : AbpModule
     {
         Configure<AbpMultiTenancyOptions>(options =>
                                           {
-                                              options.IsEnabled = true;
+                                              options.IsEnabled = false;
                                           });
     }
 
@@ -61,7 +65,7 @@ public class SharedHostingMicroserviceModule : AbpModule
     private void ConfigureDataProtection(IServiceCollection services, IConfiguration configuration)
     {
         var redis = ConnectionMultiplexer.Connect(configuration["Redis:Configuration"]);
-        services.AddDataProtection().PersistKeysToStackExchangeRedis(redis, "EShop-Protection-Keys");
+        services.AddDataProtection().SetApplicationName("EShop").PersistKeysToStackExchangeRedis(redis, "EShop-Protection-Keys");
     }
 
     private void ConfigureDistributedLock(IServiceCollection services, IConfiguration configuration)
@@ -72,4 +76,21 @@ public class SharedHostingMicroserviceModule : AbpModule
                                                             return new RedisDistributedSynchronizationProvider(redis.GetDatabase());
                                                         });
     }
+
+    private void ConfigureCors(IServiceCollection services, IConfiguration configuration)
+    {
+        services.AddCors(options =>
+                         {
+                             options.AddDefaultPolicy(builder =>
+                                                      {
+                                                          builder.WithOrigins(configuration["App:CorsOrigins"].Split(",", StringSplitOptions.RemoveEmptyEntries).Select(o => o.RemovePostFix("/")).ToArray())
+                                                                 .WithAbpExposedHeaders()
+                                                                 .SetIsOriginAllowedToAllowWildcardSubdomains()
+                                                                 .AllowAnyHeader()
+                                                                 .AllowAnyMethod()
+                                                                 .AllowCredentials();
+                                                      });
+                         });
+    }
+
 }

@@ -9,6 +9,7 @@
 	</PropertyGroup>
 
 	<ItemGroup>
+		<PackageReference Include="IdentityModel" Version="6.0.0" />
 		<PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.5">
 			<PrivateAssets>all</PrivateAssets>
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -26,6 +27,19 @@
 		<ProjectReference Include="..\EShop.AdministrationService.Application\EShop.AdministrationService.Application.csproj" />
 		<ProjectReference Include="..\EShop.AdministrationService.EntityFrameworkCore\EShop.AdministrationService.EntityFrameworkCore.csproj" />
 		<ProjectReference Include="..\EShop.AdministrationService.HttpApi\EShop.AdministrationService.HttpApi.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Remove="appsettings.json" />
+		<Content Include="appsettings.json">
+			<CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<None Remove="appsettings.secrets.json" />
+		<Content Include="appsettings.secrets.json">
+			<CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
 	</ItemGroup>
 
 	<ItemGroup>

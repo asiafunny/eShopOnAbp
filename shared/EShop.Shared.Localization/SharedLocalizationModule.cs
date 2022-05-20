@@ -1,5 +1,6 @@
 ﻿using EShop.Localization.Localization;
 using Volo.Abp.Localization;
+using Volo.Abp.Localization.ExceptionHandling;
 using Volo.Abp.Modularity;
 using Volo.Abp.Validation;
 using Volo.Abp.Validation.Localization;
@@ -18,6 +19,7 @@ public class SharedLocalizationModule : AbpModule
     {
         ConfigureVirtualFileSystem();
         ConfigureLocalization();
+        ConfigureExceptionLocalization();
     }
 
     #endregion
@@ -37,5 +39,13 @@ public class SharedLocalizationModule : AbpModule
                                               options.Resources.Add<SharedResource>("en").AddBaseTypes(typeof(AbpValidationResource)).AddVirtualJson("/Localization/EShop");
                                               options.DefaultResourceType = typeof(SharedResource);
                                           });
+    }
+
+    private void ConfigureExceptionLocalization()
+    {
+        Configure<AbpExceptionLocalizationOptions>(options =>
+                                                   {
+                                                       options.MapCodeNamespace("EShop", typeof(SharedResource));
+                                                   });
     }
 }
