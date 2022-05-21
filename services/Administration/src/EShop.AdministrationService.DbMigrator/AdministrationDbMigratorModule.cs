@@ -5,8 +5,8 @@ using Volo.Abp.Modularity;
 namespace EShop.AdministrationService;
 
 [DependsOn(typeof(SharedHostingAspNetCoreModule))]
-[DependsOn(typeof(AdministrationApplicationContractsModule))]
-[DependsOn(typeof(AdministrationEntityFrameworkCoreModule))]
+[DependsOn(typeof(AdmsApplicationContractsModule))]
+[DependsOn(typeof(AdmsEntityFrameworkCoreModule))]
 public class AdministrationDbMigratorModule : AbpModule
 {
 

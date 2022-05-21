@@ -17,8 +17,8 @@ namespace EShop.AdministrationService.EntityFrameworkCore;
 [DependsOn(typeof(AbpSettingManagementEntityFrameworkCoreModule))]
 [DependsOn(typeof(AbpAuditLoggingEntityFrameworkCoreModule))]
 [DependsOn(typeof(BlobStoringDatabaseEntityFrameworkCoreModule))]
-[DependsOn(typeof(AdministrationDomainModule))]
-public class AdministrationEntityFrameworkCoreModule : AbpModule
+[DependsOn(typeof(AdmsDomainModule))]
+public class AdmsEntityFrameworkCoreModule : AbpModule
 {
 
     #region Overrides of AbpModule
@@ -26,7 +26,7 @@ public class AdministrationEntityFrameworkCoreModule : AbpModule
     /// <inheritdoc />
     public override void PreConfigureServices(ServiceConfigurationContext context)
     {
-        AdministrationEntityExtensionMappings.Configure();
+        AdmsEntityExtensionMappings.Configure();
     }
 
     /// <inheritdoc />
@@ -40,7 +40,7 @@ public class AdministrationEntityFrameworkCoreModule : AbpModule
 
     private void ConfigureDbContext(IServiceCollection services)
     {
-        services.AddAbpDbContext<AdministrationDbContext>(options =>
+        services.AddAbpDbContext<AdmsDbContext>(options =>
                                                                  {
                                                                      options.ReplaceDbContext<IFeatureManagementDbContext>();
                                                                      options.ReplaceDbContext<IPermissionManagementDbContext>();
@@ -52,12 +52,12 @@ public class AdministrationEntityFrameworkCoreModule : AbpModule
                                                                  });
         Configure<AbpDbContextOptions>(options =>
                                        {
-                                           options.Configure<AdministrationDbContext>(config =>
+                                           options.Configure<AdmsDbContext>(config =>
                                                                                              {
                                                                                                  config.UseSqlServer(sqlBuilder =>
                                                                                                                      {
                                                                                                                          sqlBuilder.UseQuerySplittingBehavior(QuerySplittingBehavior.SplitQuery);
-                                                                                                                         sqlBuilder.MigrationsHistoryTable("__Administration_Migrations");
+                                                                                                                         sqlBuilder.MigrationsHistoryTable("__Adms_Migrations");
                                                                                                                      });
                                                                                              });
                                        });

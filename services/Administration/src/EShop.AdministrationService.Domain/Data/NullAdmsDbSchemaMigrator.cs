@@ -4,10 +4,10 @@ using Volo.Abp.DependencyInjection;
 
 namespace EShop.AdministrationService.Data;
 
-public class NullAdministrationDbSchemaMigrator : IAdministrationDbSchemaMigrator, ITransientDependency
+public class NullAdmsDbSchemaMigrator : IAdmsDbSchemaMigrator, ITransientDependency
 {
 
-    #region Implementation of IAdministrationServiceDbSchemaMigrator
+    #region Implementation of IAdmsDbSchemaMigrator
 
     /// <inheritdoc />
     public Task MigrateAsync(CancellationToken cancellationToken = default)

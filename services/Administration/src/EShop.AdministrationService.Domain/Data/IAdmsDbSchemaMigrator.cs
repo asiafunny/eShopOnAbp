@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 
 namespace EShop.AdministrationService.Data;
 
-public interface IAdministrationDbSchemaMigrator
+public interface IAdmsDbSchemaMigrator
 {
     Task MigrateAsync(CancellationToken cancellationToken = default);
 }

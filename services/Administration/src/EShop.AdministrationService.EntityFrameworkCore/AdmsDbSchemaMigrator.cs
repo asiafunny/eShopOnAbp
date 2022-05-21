@@ -8,16 +8,16 @@ using Volo.Abp.DependencyInjection;
 
 namespace EShop.AdministrationService.Data;
 
-public class AdministrationDbSchemaMigrator : IAdministrationDbSchemaMigrator, ITransientDependency
+public class AdmsDbSchemaMigrator : IAdmsDbSchemaMigrator, ITransientDependency
 {
     private readonly IServiceProvider _serviceProvider;
 
-    public AdministrationDbSchemaMigrator(IServiceProvider serviceProvider)
+    public AdmsDbSchemaMigrator(IServiceProvider serviceProvider)
     {
         _serviceProvider = serviceProvider;
     }
 
-    #region Implementation of IAdministrationServiceDbSchemaMigrator
+    #region Implementation of IAdmsDbSchemaMigrator
 
     /// <summary>
     ///     We intentionally resolving the DbContext from IServiceProvider (instead of directly injecting it) to properly get
@@ -26,7 +26,7 @@ public class AdministrationDbSchemaMigrator : IAdministrationDbSchemaMigrator, I
     /// <returns></returns>
     public async Task MigrateAsync(CancellationToken cancellationToken = default)
     {
-        var dbContext = _serviceProvider.GetService<AdministrationDbContext>();
+        var dbContext = _serviceProvider.GetService<AdmsDbContext>();
         if (dbContext != null)
         {
             await dbContext.Database.MigrateAsync(cancellationToken);

@@ -15,10 +15,10 @@ using Volo.Abp.Modularity;
 namespace EShop.AdministrationService;
 
 [DependsOn(typeof(SharedHostingMicroserviceModule))]
-[DependsOn(typeof(AdministrationApplicationModule))]
-[DependsOn(typeof(AdministrationEntityFrameworkCoreModule))]
-[DependsOn(typeof(AdministrationHttpApiModule))]
-public class AdministrationHttpApiHostModule : AbpModule
+[DependsOn(typeof(AdmsApplicationModule))]
+[DependsOn(typeof(AdmsEntityFrameworkCoreModule))]
+[DependsOn(typeof(AdmsHttpApiModule))]
+public class AdmsHttpApiHostModule : AbpModule
 {
 
     #region Overrides of AbpModule
@@ -39,7 +39,11 @@ public class AdministrationHttpApiHostModule : AbpModule
     {
         Configure<AbpAspNetCoreMvcOptions>(options =>
                                            {
-                                               options.ConventionalControllers.Create(typeof(AdministrationHttpApiHostModule).Assembly);
+                                               options.ConventionalControllers.Create(typeof(AdmsApplicationModule).Assembly,
+                                                                                      setting =>
+                                                                                      {
+                                                                                          setting.RootPath = "eshop";
+                                                                                      });
                                            });
     }
 
@@ -50,17 +54,17 @@ public class AdministrationHttpApiHostModule : AbpModule
                               {
                                   options.Authority = configuration["AuthServer:Authority"];
                                   options.RequireHttpsMetadata = Convert.ToBoolean(configuration["AuthServer:RequireHttpsMetadata"]);
-                                  options.Audience = AdministrationRemoteServiceConsts.RemoteServiceName;
+                                  options.Audience = AdmsRemoteServiceConsts.RemoteServiceName;
                               });
     }
 
     private void ConfigureSwaggerServices(IServiceCollection services, IConfiguration configuration)
     {
         services.AddAbpSwaggerGenWithOAuth(configuration["AuthServer:Authority"],
-                                           new Dictionary<string, string> { { AdministrationRemoteServiceConsts.RemoteServiceName, AdministrationRemoteServiceConsts.RemoteServiceDescription } },
+                                           new Dictionary<string, string> { { AdmsRemoteServiceConsts.RemoteServiceName, AdmsRemoteServiceConsts.RemoteServiceDescription } },
                                            options =>
                                            {
-                                               options.SwaggerDoc("v1", new OpenApiInfo { Title = AdministrationRemoteServiceConsts.RemoteServiceDescription, Version = "v1" });
+                                               options.SwaggerDoc("v1", new OpenApiInfo { Title = AdmsRemoteServiceConsts.RemoteServiceDescription, Version = "v1" });
                                                options.DocInclusionPredicate((_, _) => true);
                                                options.CustomSchemaIds(type => type.FullName);
                                            });
@@ -92,10 +96,10 @@ public class AdministrationHttpApiHostModule : AbpModule
         app.UseSwaggerUI(options =>
                          {
                              var configuration = context.GetConfiguration();
-                             options.SwaggerEndpoint("/swagger/v1/swagger.json", AdministrationRemoteServiceConsts.RemoteServiceDescription);
+                             options.SwaggerEndpoint("/swagger/v1/swagger.json", AdmsRemoteServiceConsts.RemoteServiceDescription);
                              options.OAuthClientId(configuration["AuthServer:SwaggerClientId"]);
                              options.OAuthClientSecret(configuration["AuthServer:SwaggerClientSecret"]);
-                             options.OAuthScopes(AdministrationRemoteServiceConsts.RemoteServiceName);
+                             options.OAuthScopes(AdmsRemoteServiceConsts.RemoteServiceName);
                          });
         app.UseAbpSerilogEnrichers();
         app.UseAuditing();

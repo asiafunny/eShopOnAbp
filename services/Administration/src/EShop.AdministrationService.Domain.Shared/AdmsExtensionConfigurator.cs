@@ -2,7 +2,7 @@
 
 namespace EShop.AdministrationService;
 
-public static class AdministrationExtensionConfigurator
+public static class AdmsExtensionConfigurator
 {
     private static readonly OneTimeRunner s_OneTimeRunner = new();
 

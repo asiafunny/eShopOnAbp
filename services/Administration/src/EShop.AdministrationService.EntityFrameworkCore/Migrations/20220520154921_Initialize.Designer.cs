@@ -12,8 +12,8 @@ using Volo.Abp.EntityFrameworkCore;
 
 namespace EShop.AdministrationService.Migrations
 {
-    [DbContext(typeof(AdministrationDbContext))]
-    [Migration("20220520093535_Initialize")]
+    [DbContext(typeof(AdmsDbContext))]
+    [Migration("20220520154921_Initialize")]
     partial class Initialize
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

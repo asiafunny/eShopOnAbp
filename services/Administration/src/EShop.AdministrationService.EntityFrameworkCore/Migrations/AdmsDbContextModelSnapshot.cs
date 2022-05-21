@@ -11,8 +11,8 @@ using Volo.Abp.EntityFrameworkCore;
 
 namespace EShop.AdministrationService.Migrations
 {
-    [DbContext(typeof(AdministrationDbContext))]
-    partial class AdministrationDbContextModelSnapshot : ModelSnapshot
+    [DbContext(typeof(AdmsDbContext))]
+    partial class AdmsDbContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)
         {

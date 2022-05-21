@@ -2,7 +2,7 @@
 
 namespace EShop.AdministrationService;
 
-public static class AdministrationEntityExtensionMappings
+public static class AdmsEntityExtensionMappings
 {
     private static readonly OneTimeRunner s_OneTimeRunner = new();
 
@@ -26,8 +26,8 @@ public static class AdministrationEntityExtensionMappings
     /// </see>
     public static void Configure()
     {
-        AdministrationGlobalFeatureConfigurator.Configure();
-        AdministrationExtensionConfigurator.Configure();
+        AdmsGlobalFeatureConfigurator.Configure();
+        AdmsExtensionConfigurator.Configure();
         s_OneTimeRunner.Run(() =>
                             {
                             });

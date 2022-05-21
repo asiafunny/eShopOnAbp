@@ -4,7 +4,7 @@ using Volo.Abp.Localization;
 
 namespace EShop.AdministrationService.Permissions;
 
-public class AdministrationPermissionDefinitionProvider : PermissionDefinitionProvider
+public class AdmsPermissionDefinitionProvider : PermissionDefinitionProvider
 {
 
     #region Overrides of PermissionDefinitionProvider
@@ -21,7 +21,7 @@ public class AdministrationPermissionDefinitionProvider : PermissionDefinitionPr
 
     private static LocalizableString L(string name)
     {
-        return LocalizableString.Create<AdministrationResource>(name);
+        return LocalizableString.Create<AdmsResource>(name);
     }
 
 }

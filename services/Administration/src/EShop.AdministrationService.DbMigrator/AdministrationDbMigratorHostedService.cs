@@ -33,7 +33,7 @@ public class AdministrationDbMigratorHostedService : IHostedService
                                                                                                          }))
         {
             await application.InitializeAsync();
-            await application.ServiceProvider.GetRequiredService<AdministrationDbMigrationService>().MigrateAsync(cancellationToken);
+            await application.ServiceProvider.GetRequiredService<AdmsDbMigrationService>().MigrateAsync(cancellationToken);
             await application.ShutdownAsync();
             _hostApplicationLifetime.StopApplication();
         }

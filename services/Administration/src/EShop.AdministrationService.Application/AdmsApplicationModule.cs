@@ -11,9 +11,9 @@ namespace EShop.AdministrationService;
 [DependsOn(typeof(AbpFeatureManagementApplicationModule))]
 [DependsOn(typeof(AbpPermissionManagementApplicationModule))]
 [DependsOn(typeof(AbpSettingManagementApplicationModule))]
-[DependsOn(typeof(AdministrationDomainModule))]
-[DependsOn(typeof(AdministrationApplicationContractsModule))]
-public class AdministrationApplicationModule : AbpModule
+[DependsOn(typeof(AdmsDomainModule))]
+[DependsOn(typeof(AdmsApplicationContractsModule))]
+public class AdmsApplicationModule : AbpModule
 {
 
     #region Overrides of AbpModule
@@ -29,10 +29,10 @@ public class AdministrationApplicationModule : AbpModule
 
     private void ConfigureAutoMapper(IServiceCollection services)
     {
-        services.AddAutoMapperObjectMapper<AdministrationApplicationModule>();
+        services.AddAutoMapperObjectMapper<AdmsApplicationModule>();
         Configure<AbpAutoMapperOptions>(options =>
                                         {
-                                            options.AddMaps<AdministrationApplicationModule>(true);
+                                            options.AddMaps<AdmsApplicationModule>(true);
                                         });
     }
 

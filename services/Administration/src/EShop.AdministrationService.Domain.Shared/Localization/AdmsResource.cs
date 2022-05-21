@@ -2,7 +2,7 @@
 
 namespace EShop.AdministrationService.Localization;
 
-[LocalizationResourceName("Administration")]
-public class AdministrationResource
+[LocalizationResourceName("Adms")]
+public class AdmsResource
 {
 }

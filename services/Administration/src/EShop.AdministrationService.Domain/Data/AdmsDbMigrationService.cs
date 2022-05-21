@@ -7,15 +7,15 @@ using Volo.Abp.DependencyInjection;
 
 namespace EShop.AdministrationService.Data;
 
-public class AdministrationDbMigrationService : ITransientDependency
+public class AdmsDbMigrationService : ITransientDependency
 {
-    protected IEnumerable<IAdministrationDbSchemaMigrator> DbSchemaMigrators { get; }
+    protected IEnumerable<IAdmsDbSchemaMigrator> DbSchemaMigrators { get; }
 
     protected IDataSeeder DataSeeder { get; }
 
-    protected ILogger<AdministrationDbMigrationService> Logger { get; }
+    protected ILogger<AdmsDbMigrationService> Logger { get; }
 
-    public AdministrationDbMigrationService(IEnumerable<IAdministrationDbSchemaMigrator> dbSchemaMigrators, IDataSeeder dataSeeder, ILogger<AdministrationDbMigrationService> logger)
+    public AdmsDbMigrationService(IEnumerable<IAdmsDbSchemaMigrator> dbSchemaMigrators, IDataSeeder dataSeeder, ILogger<AdmsDbMigrationService> logger)
     {
         DbSchemaMigrators = dbSchemaMigrators;
         DataSeeder = dataSeeder;

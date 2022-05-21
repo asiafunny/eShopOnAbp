@@ -2,7 +2,7 @@
 
 namespace EShop.AdministrationService.Settings;
 
-public class AdministrationSettingDefinitionProvider : SettingDefinitionProvider
+public class AdmsSettingDefinitionProvider : SettingDefinitionProvider
 {
 
     #region Overrides of SettingDefinitionProvider

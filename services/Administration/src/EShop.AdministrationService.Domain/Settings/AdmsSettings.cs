@@ -1,8 +1,8 @@
 ﻿namespace EShop.AdministrationService.Settings;
 
-public static class AdministrationSettings
+public static class AdmsSettings
 {
-    private const string Prefix = "Administration";
+    private const string Prefix = "Adms";
 
     // public const string MySetting1 = $"{Prefix}.MySetting1";
 }

@@ -14,11 +14,11 @@ using Volo.Abp.SettingManagement.EntityFrameworkCore;
 
 namespace EShop.AdministrationService.EntityFrameworkCore;
 
-[ConnectionStringName(AdministrationDbProperties.ConnectionStringName)]
-public class AdministrationDbContext : AbpDbContext<AdministrationDbContext>, IAdministrationDbContext, IFeatureManagementDbContext, IPermissionManagementDbContext, ISettingManagementDbContext, IAuditLoggingDbContext, IBlobStoringDbContext
+[ConnectionStringName(AdmsDbProperties.ConnectionStringName)]
+public class AdmsDbContext : AbpDbContext<AdmsDbContext>, IFeatureManagementDbContext, IPermissionManagementDbContext, ISettingManagementDbContext, IAuditLoggingDbContext, IBlobStoringDbContext
 {
     /// <inheritdoc />
-    public AdministrationDbContext(DbContextOptions<AdministrationDbContext> options)
+    public AdmsDbContext(DbContextOptions<AdmsDbContext> options)
         : base(options)
     {
     }
@@ -61,7 +61,7 @@ public class AdministrationDbContext : AbpDbContext<AdministrationDbContext>, IA
 
     #endregion
 
-    #region Overrides of AbpDbContext<AdministrationServiceDbContext>
+    #region Overrides of AbpDbContext<AdmsDbContext>
 
     /// <inheritdoc />
     protected override void OnModelCreating(ModelBuilder builder)
@@ -72,7 +72,7 @@ public class AdministrationDbContext : AbpDbContext<AdministrationDbContext>, IA
         builder.ConfigureSettingManagement();
         builder.ConfigureAuditLogging();
         builder.ConfigureBlobStoring();
-        builder.ConfigureAdministrationService();
+        builder.ConfigureAdms();
     }
 
     #endregion

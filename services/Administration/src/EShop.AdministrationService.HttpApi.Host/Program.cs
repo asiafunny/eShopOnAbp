@@ -15,7 +15,7 @@ public static class Program
         try
         {
             Log.Information($"Starting {applicationName}...");
-            var app = await ApplicationBuilderHelper.BuildApplicationAsync<AdministrationHttpApiHostModule>(args);
+            var app = await ApplicationBuilderHelper.BuildApplicationAsync<AdmsHttpApiHostModule>(args);
             await app.InitializeApplicationAsync();
             await app.RunAsync();
             return 0;

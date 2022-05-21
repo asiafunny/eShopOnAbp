@@ -21,8 +21,4 @@
 		<ProjectReference Include="..\EShop.AdministrationService.Domain.Shared\EShop.AdministrationService.Domain.Shared.csproj" />
 	</ItemGroup>
 
-	<ItemGroup>
-	  <Folder Include="Settings\" />
-	</ItemGroup>
-
 </Project>
