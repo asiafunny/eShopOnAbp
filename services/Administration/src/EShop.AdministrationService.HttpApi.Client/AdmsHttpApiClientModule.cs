@@ -1,5 +1,8 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using System;
+using Microsoft.Extensions.DependencyInjection;
+using Polly;
 using Volo.Abp.FeatureManagement;
+using Volo.Abp.Http.Client;
 using Volo.Abp.Modularity;
 using Volo.Abp.PermissionManagement;
 using Volo.Abp.SettingManagement;
@@ -16,6 +19,12 @@ public class AdmsHttpApiClientModule : AbpModule
     #region Overrides of AbpModule
 
     /// <inheritdoc />
+    public override void PreConfigureServices(ServiceConfigurationContext context)
+    {
+        ConfigureHttpClientBuilder();
+    }
+
+    /// <inheritdoc />
     public override void ConfigureServices(ServiceConfigurationContext context)
     {
         var services = context.Services;
@@ -23,6 +32,17 @@ public class AdmsHttpApiClientModule : AbpModule
     }
 
     #endregion
+
+    private void ConfigureHttpClientBuilder()
+    {
+        PreConfigure<AbpHttpClientBuilderOptions>(options =>
+                                                  {
+                                                      options.ProxyClientBuildActions.Add((_, builder) =>
+                                                                                          {
+                                                                                              builder.AddTransientHttpErrorPolicy(policyBuilder => policyBuilder.WaitAndRetryAsync(3, i => TimeSpan.FromSeconds(Math.Pow(2, i))));
+                                                                                          });
+                                                  });
+    }
 
     private void ConfigureHttpClientProxies(IServiceCollection services)
     {

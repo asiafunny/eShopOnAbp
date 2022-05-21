@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
 	<Import Project="..\..\..\..\common.props" />
 
@@ -27,19 +27,6 @@
 		<ProjectReference Include="..\EShop.AdministrationService.Application\EShop.AdministrationService.Application.csproj" />
 		<ProjectReference Include="..\EShop.AdministrationService.EntityFrameworkCore\EShop.AdministrationService.EntityFrameworkCore.csproj" />
 		<ProjectReference Include="..\EShop.AdministrationService.HttpApi\EShop.AdministrationService.HttpApi.csproj" />
-	</ItemGroup>
-
-	<ItemGroup>
-		<None Remove="appsettings.json" />
-		<Content Include="appsettings.json">
-			<CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
-		</Content>
-		<None Remove="appsettings.secrets.json" />
-		<Content Include="appsettings.secrets.json">
-			<CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
-		</Content>
 	</ItemGroup>
 
 	<ItemGroup>

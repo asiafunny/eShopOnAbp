@@ -15,11 +15,11 @@ public class AdmsDbContextFactory : IDesignTimeDbContextFactory<AdmsDbContext>
     {
         AdmsEntityExtensionMappings.Configure();
         var builder = new DbContextOptionsBuilder<AdmsDbContext>().UseSqlServer(GetConnectionStringFromConfiguration(),
-                                                                                                 sqlBuilder =>
-                                                                                                 {
-                                                                                                     sqlBuilder.UseQuerySplittingBehavior(QuerySplittingBehavior.SplitQuery);
-                                                                                                     sqlBuilder.MigrationsHistoryTable("__Adms_Migrations");
-                                                                                                 });
+                                                                                sqlBuilder =>
+                                                                                {
+                                                                                    sqlBuilder.UseQuerySplittingBehavior(QuerySplittingBehavior.SplitQuery);
+                                                                                    sqlBuilder.MigrationsHistoryTable("__Adms_Migrations");
+                                                                                });
         return new AdmsDbContext(builder.Options);
     }
 

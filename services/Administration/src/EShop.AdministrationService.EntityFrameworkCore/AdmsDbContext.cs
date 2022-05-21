@@ -15,7 +15,7 @@ using Volo.Abp.SettingManagement.EntityFrameworkCore;
 namespace EShop.AdministrationService.EntityFrameworkCore;
 
 [ConnectionStringName(AdmsDbProperties.ConnectionStringName)]
-public class AdmsDbContext : AbpDbContext<AdmsDbContext>, IAdmsDbContext, IFeatureManagementDbContext, IPermissionManagementDbContext, ISettingManagementDbContext, IAuditLoggingDbContext, IBlobStoringDbContext
+public class AdmsDbContext : AbpDbContext<AdmsDbContext>, IFeatureManagementDbContext, IPermissionManagementDbContext, ISettingManagementDbContext, IAuditLoggingDbContext, IBlobStoringDbContext
 {
     /// <inheritdoc />
     public AdmsDbContext(DbContextOptions<AdmsDbContext> options)
@@ -72,7 +72,7 @@ public class AdmsDbContext : AbpDbContext<AdmsDbContext>, IAdmsDbContext, IFeatu
         builder.ConfigureSettingManagement();
         builder.ConfigureAuditLogging();
         builder.ConfigureBlobStoring();
-        builder.ConfigureAdministrationService();
+        builder.ConfigureAdms();
     }
 
     #endregion

@@ -5,7 +5,7 @@ namespace EShop.AdministrationService.EntityFrameworkCore;
 
 public static class AdmsDbContextModelCreatingExtensions
 {
-    public static void ConfigureAdministrationService(this ModelBuilder builder)
+    public static void ConfigureAdms(this ModelBuilder builder)
     {
         Check.NotNull(builder, nameof(builder));
     }
