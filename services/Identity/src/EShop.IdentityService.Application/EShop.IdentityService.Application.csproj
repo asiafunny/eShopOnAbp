@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<Import Project="..\..\..\..\common.props" />
+
+	<PropertyGroup>
+		<TargetFramework>net6.0</TargetFramework>
+		<RootNamespace>EShop.IdentityService</RootNamespace>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Volo.Abp.AutoMapper" Version="5.2.2" />
+		<PackageReference Include="Volo.Abp.Identity.Application" Version="5.2.2" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\EShop.IdentityService.Application.Contracts\EShop.IdentityService.Application.Contracts.csproj" />
+		<ProjectReference Include="..\EShop.IdentityService.Domain\EShop.IdentityService.Domain.csproj" />
+	</ItemGroup>
+
+</Project>
