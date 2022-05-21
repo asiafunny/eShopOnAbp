@@ -8,7 +8,7 @@ namespace EShop.AdministrationService;
 [DependsOn(typeof(AbpFeatureManagementHttpApiModule))]
 [DependsOn(typeof(AbpPermissionManagementHttpApiModule))]
 [DependsOn(typeof(AbpSettingManagementHttpApiModule))]
-[DependsOn(typeof(AdministrationApplicationContractsModule))]
-public class AdministrationHttpApiModule : AbpModule
+[DependsOn(typeof(AdmsApplicationContractsModule))]
+public class AdmsHttpApiModule : AbpModule
 {
 }

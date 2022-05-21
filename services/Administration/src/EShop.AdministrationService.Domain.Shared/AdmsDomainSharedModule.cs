@@ -19,7 +19,7 @@ namespace EShop.AdministrationService;
 [DependsOn(typeof(AbpSettingManagementDomainSharedModule))]
 [DependsOn(typeof(AbpAuditLoggingDomainSharedModule))]
 [DependsOn(typeof(BlobStoringDatabaseDomainSharedModule))]
-public class AdministrationDomainSharedModule : AbpModule
+public class AdmsDomainSharedModule : AbpModule
 {
 
     #region Overrides of AbpModule
@@ -27,8 +27,8 @@ public class AdministrationDomainSharedModule : AbpModule
     /// <inheritdoc />
     public override void PreConfigureServices(ServiceConfigurationContext context)
     {
-        AdministrationGlobalFeatureConfigurator.Configure();
-        AdministrationExtensionConfigurator.Configure();
+        AdmsGlobalFeatureConfigurator.Configure();
+        AdmsExtensionConfigurator.Configure();
     }
 
     /// <inheritdoc />
@@ -45,7 +45,7 @@ public class AdministrationDomainSharedModule : AbpModule
     {
         Configure<AbpVirtualFileSystemOptions>(options =>
                                                {
-                                                   options.FileSets.AddEmbedded<AdministrationDomainSharedModule>();
+                                                   options.FileSets.AddEmbedded<AdmsDomainSharedModule>();
                                                });
     }
 
@@ -53,8 +53,8 @@ public class AdministrationDomainSharedModule : AbpModule
     {
         Configure<AbpLocalizationOptions>(options =>
                                           {
-                                              options.Resources.Add<AdministrationResource>("en").AddBaseTypes(typeof(AbpValidationResource)).AddVirtualJson("/Localization/AdministrationService");
-                                              options.DefaultResourceType = typeof(AdministrationResource);
+                                              options.Resources.Add<AdmsResource>("en").AddBaseTypes(typeof(AbpValidationResource)).AddVirtualJson("/Localization/Administration");
+                                              options.DefaultResourceType = typeof(AdmsResource);
                                           });
     }
 
@@ -62,7 +62,7 @@ public class AdministrationDomainSharedModule : AbpModule
     {
         Configure<AbpExceptionLocalizationOptions>(options =>
                                                    {
-                                                       options.MapCodeNamespace("EShop.Administration", typeof(AdministrationResource));
+                                                       options.MapCodeNamespace("EShop.Administration", typeof(AdmsResource));
                                                    });
     }
 

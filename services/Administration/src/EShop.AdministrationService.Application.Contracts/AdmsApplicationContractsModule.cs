@@ -10,8 +10,8 @@ namespace EShop.AdministrationService;
 [DependsOn(typeof(AbpFeatureManagementApplicationContractsModule))]
 [DependsOn(typeof(AbpPermissionManagementApplicationContractsModule))]
 [DependsOn(typeof(AbpSettingManagementApplicationContractsModule))]
-[DependsOn(typeof(AdministrationDomainSharedModule))]
-public class AdministrationApplicationContractsModule : AbpModule
+[DependsOn(typeof(AdmsDomainSharedModule))]
+public class AdmsApplicationContractsModule : AbpModule
 {
 
     #region Overrides of AbpModule
@@ -19,7 +19,7 @@ public class AdministrationApplicationContractsModule : AbpModule
     /// <inheritdoc />
     public override void PreConfigureServices(ServiceConfigurationContext context)
     {
-        AdministrationDtoExtensions.Configure();
+        AdmsDtoExtensions.Configure();
     }
 
     #endregion

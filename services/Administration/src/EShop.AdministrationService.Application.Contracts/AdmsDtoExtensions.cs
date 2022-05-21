@@ -2,7 +2,7 @@
 
 namespace EShop.AdministrationService;
 
-public static class AdministrationDtoExtensions
+public static class AdmsDtoExtensions
 {
     private static readonly OneTimeRunner s_OneTimeRunner = new();
 

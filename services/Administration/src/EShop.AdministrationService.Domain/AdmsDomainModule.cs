@@ -17,8 +17,8 @@ namespace EShop.AdministrationService;
 [DependsOn(typeof(AbpSettingManagementDomainModule))]
 [DependsOn(typeof(AbpAuditLoggingDomainModule))]
 [DependsOn(typeof(BlobStoringDatabaseDomainModule))]
-[DependsOn(typeof(AdministrationDomainSharedModule))]
-public class AdministrationDomainModule : AbpModule
+[DependsOn(typeof(AdmsDomainSharedModule))]
+public class AdmsDomainModule : AbpModule
 {
 
     #region Overrides of AbpModule

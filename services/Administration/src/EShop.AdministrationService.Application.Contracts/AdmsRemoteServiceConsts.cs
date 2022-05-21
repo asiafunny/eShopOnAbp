@@ -1,6 +1,6 @@
 ﻿namespace EShop.AdministrationService;
 
-public static class AdministrationRemoteServiceConsts
+public static class AdmsRemoteServiceConsts
 {
     public const string RemoteServiceName = "AdministrationService";
 
